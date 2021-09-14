@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/valex-maschen/carshering-app-react/static/css/main.6dea0f05.chunk.css",
+    "main.js": "/valex-maschen/carshering-app-react/static/js/main.de76b386.chunk.js",
+    "main.js.map": "/valex-maschen/carshering-app-react/static/js/main.de76b386.chunk.js.map",
+    "runtime-main.js": "/valex-maschen/carshering-app-react/static/js/runtime-main.516fcacb.js",
+    "runtime-main.js.map": "/valex-maschen/carshering-app-react/static/js/runtime-main.516fcacb.js.map",
+    "static/js/2.a0892e45.chunk.js": "/valex-maschen/carshering-app-react/static/js/2.a0892e45.chunk.js",
+    "static/js/2.a0892e45.chunk.js.map": "/valex-maschen/carshering-app-react/static/js/2.a0892e45.chunk.js.map",
+    "static/js/3.2f46091d.chunk.js": "/valex-maschen/carshering-app-react/static/js/3.2f46091d.chunk.js",
+    "static/js/3.2f46091d.chunk.js.map": "/valex-maschen/carshering-app-react/static/js/3.2f46091d.chunk.js.map",
+    "index.html": "/valex-maschen/carshering-app-react/index.html",
+    "static/css/main.6dea0f05.chunk.css.map": "/valex-maschen/carshering-app-react/static/css/main.6dea0f05.chunk.css.map",
+    "static/js/2.a0892e45.chunk.js.LICENSE.txt": "/valex-maschen/carshering-app-react/static/js/2.a0892e45.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.516fcacb.js",
+    "static/js/2.a0892e45.chunk.js",
+    "static/css/main.6dea0f05.chunk.css",
+    "static/js/main.de76b386.chunk.js"
+  ]
+}
