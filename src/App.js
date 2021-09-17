@@ -1,8 +1,10 @@
+import React from 'react';
+import Menu from './components/menu/menu';
+
+
 function App() {
   return (
-    <div>
-      1
-    </div>
+    <Menu/>
   );
 }
 

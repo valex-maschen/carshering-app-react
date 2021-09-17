@@ -1,0 +1,35 @@
+.MenuContainer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height:100%;
+    width:64px;
+    background-color: black;
+}
+
+.Hamburger{
+    display: inline-block;
+    cursor: pointer;
+    padding-top: 25px;
+    
+}
+
+.Bar1,.Bar2,.Bar3 {
+    width: 24px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+    margin: 6px 0;
+    transition: 0.4s transform;
+}
+
+.HamburgerOpen .Bar1{
+    transform: rotate(-45deg) translate(-4px, 0px) ;
+}
+
+.HamburgerOpen .Bar2{
+    opacity: 0;
+}
+
+.HamburgerOpen .Bar3{
+    transform: rotate(45deg) translate(-10px, -8px) ;
+}
