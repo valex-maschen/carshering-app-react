@@ -1,0 +1,21 @@
+.content{
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.logo{
+ padding-left: 5%;
+ height: 32px;
+ width: 25%;
+ font-family: Roboto;
+ font-style: normal;
+ font-weight: bold;
+ font-size: 30px;
+ line-height: 35px;
+ color: #0EC261;
+}
+
+.headers{
+ padding-left: 5%;
+}

@@ -1,4 +1,4 @@
-.MenuContainer{
+.menuContainer{
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -7,14 +7,13 @@
     background-color: black;
 }
 
-.Hamburger{
+.hamburger{
     display: inline-block;
     cursor: pointer;
     padding-top: 25px;
-    
 }
 
-.Bar1,.Bar2,.Bar3 {
+.bar1,.bar2,.bar3 {
     width: 24px;
     height: 2px;
     background-color: rgb(255, 255, 255);
@@ -22,14 +21,14 @@
     transition: 0.4s transform;
 }
 
-.HamburgerOpen .Bar1{
+.hamburgerOpen .bar1{
     transform: rotate(-45deg) translate(-4px, 0px) ;
 }
 
-.HamburgerOpen .Bar2{
+.hamburgerOpen .bar2{
     opacity: 0;
 }
 
-.HamburgerOpen .Bar3{
+.hamburgerOpen .bar3{
     transform: rotate(45deg) translate(-10px, -8px) ;
 }

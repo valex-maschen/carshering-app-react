@@ -1,4 +1,4 @@
-import React, { useState }from "react";
+import React, { useState, useCallback }from "react";
 import styles from "../menu/menu.module.css";
 import cn from "classnames";
 
@@ -7,13 +7,18 @@ import cn from "classnames";
 
 const Menu = () => {
     const [open, setOpen] = useState(false);
+    
+    const handleClick = useCallback(()=> {
+        setOpen(!open)
+    }, [open]) 
+    
 
     return (
-        <div className={styles.MenuContainer}>
-            <div className={cn(styles.Hamburger, open && styles.HamburgerOpen)} onClick={()=>setOpen((prev)=> !prev)} >
-                <div className={styles.Bar1}></div>
-                <div className={styles.Bar2}></div>
-                <div className={styles.Bar3}></div>
+        <div className={styles.menuContainer}>
+            <div className={cn(styles.hamburger,{[styles.hamburgerOpen]: open})} onClick={handleClick} >
+                <div className={styles.bar1}></div>
+                <div className={styles.bar2}></div>
+                <div className={styles.bar3}></div>
             </div>
         </div>
     )

@@ -1,10 +1,10 @@
 import React from 'react';
-import Menu from './components/menu/menu';
+import StartScreen from './pages/main/startScreen';
 
 
 function App() {
   return (
-    <Menu/>
+    <StartScreen/>
   );
 }
 
