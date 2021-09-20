@@ -39,11 +39,6 @@ const plugins = () => {
         new MiniCssExtractPlugin({
             filename: filename('css')
         }),
-        new webpackConfig.HashedModuleIdsPlugin({
-            hashFunction: 'md4',
-            hashDigest: 'base64',
-            hashDigestLength: 4
-        })
     ];
 };
 
@@ -151,17 +146,15 @@ module.exports = {
     },
     optimization: optimization(),
     devServer: {
-        port: 8082,
-        host: '0.0.0.0',
-        clientLogLevel: 'warning',
-        stats: 'errors-only',
-        useLocalIp: true,
-        hot: isDevelopment,
-        inline: true,
-        compress: true,
-        overlay: true,
-        disableHostCheck: true,
+        port: 8080,
+        host: "0.0.0.0",
+        clientLogLevel: "warning",
+        stats: "errors-only",
         historyApiFallback: true,
+        useLocalIp: true,
+        inline: true,
+        hot: isDevelopment,
+        overlay: true,
     },
     devtool: isDevelopment ? 'source-map' : '',
     plugins: plugins()
