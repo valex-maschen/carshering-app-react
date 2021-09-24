@@ -14,6 +14,9 @@ const Menu = ({onClick, isOpen}) => {
                 <div className={styles.bar2}></div>
                 <div className={styles.bar3}></div>
             </div>
+            <div>
+                <p className={styles.language}> Eng </p>
+            </div>
         </div>
     )
 }

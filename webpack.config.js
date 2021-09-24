@@ -1,5 +1,4 @@
 const path = require('path');
-const webpackConfig = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const postcssNesting = require('postcss-nested');
@@ -7,8 +6,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 
+
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = process.env.NODE_ENV === 'production';
+const svgoConfig = {
+    plugins: [{ removeViewBox: false }],
+};
+
+
+console.log("process.env", process.env.API_KEY);
 
 const filename = (ext) => (isDevelopment ? `[name].${ext}` : `[name].[hash].${ext}`);
 
@@ -17,7 +23,7 @@ const optimization = () => {
         runtimeChunk: isDevelopment,
         splitChunks: {
             chunks: 'all'
-        }
+        },
     };
 
     if (isProduction) {
@@ -64,7 +70,6 @@ const cssLoaders = () => {
             loader: 'postcss-loader',
             options: {
                 ident: 'postcss',
-                plugins: () => [postcssNesting()]
             }
         }
     ];
@@ -141,21 +146,27 @@ module.exports = {
             {
                 test: /\.(ttf|woff|woff2|eot)$/,
                 use: ['file-loader']
-            }
+            },
+            {
+                test: /.svg$/,
+                use: {
+                    loader: "@svgr/webpack",
+                    options: { svgoConfig },
+                },
+            },
         ]
     },
     optimization: optimization(),
     devServer: {
-        port: 8080,
-        host: "0.0.0.0",
-        clientLogLevel: "warning",
-        stats: "errors-only",
-        historyApiFallback: true,
-        useLocalIp: true,
-        inline: true,
+        port: 8082,
+        host: '0.0.0.0',
         hot: isDevelopment,
-        overlay: true,
+        compress: true,
+        client: {
+            overlay: true,
+        },
+        historyApiFallback: true,
     },
     devtool: isDevelopment ? 'source-map' : '',
     plugins: plugins()
-}
+};

@@ -3,6 +3,7 @@ import styles from "../main/startScreen.module.css";
 import Menu from "../../components/menu/menu"
 import Layout from "../../components/Layout/Layout";
 import cn from "classnames";
+import LeftArrow from "../../assets/leftArrow.svg";
 
 const StartScreen = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -31,9 +32,11 @@ const StartScreen = () => {
                     </div>
                 </div>
                 }
-                    rightColoumn={<div> 
-                    Правая колонка 
-                </div>}
+                    rightColoumn={
+                    <div className={styles.sliderContainer}> 
+                        <button className={styles.leftButton}> <LeftArrow/> </button>    
+                        <button className={styles.rightButton}> + </button>
+                    </div>}
                 />
                
         </div>
