@@ -6,15 +6,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetWebpackPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserWebpackPlugin = require('terser-webpack-plugin');
 
-
 const isDevelopment = process.env.NODE_ENV === 'development';
 const isProduction = process.env.NODE_ENV === 'production';
 const svgoConfig = {
-    plugins: [{ removeViewBox: false }],
+    plugins: [{ removeViewBox: false }]
 };
 
-
-console.log("process.env", process.env.API_KEY);
+console.log('process.env', process.env.API_KEY);
 
 const filename = (ext) => (isDevelopment ? `[name].${ext}` : `[name].[hash].${ext}`);
 
@@ -23,7 +21,7 @@ const optimization = () => {
         runtimeChunk: isDevelopment,
         splitChunks: {
             chunks: 'all'
-        },
+        }
     };
 
     if (isProduction) {
@@ -44,34 +42,22 @@ const plugins = () => {
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: filename('css')
-        }),
+        })
     ];
 };
 
 const cssLoaders = () => {
     return [
-        {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-                hrm: isDevelopment,
-                reloadAll: true
-            }
-        },
+        MiniCssExtractPlugin.loader,
         {
             loader: 'css-loader',
             options: {
-                importLoaders: 1,
-                modules: {
-                    localIdentName: isDevelopment ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:5]'
-                }
+                modules: true,
+                localIdentName: '[local]_[hash:base64:5]'
             }
         },
-        {
-            loader: 'postcss-loader',
-            options: {
-                ident: 'postcss',
-            }
-        }
+        'postcss-loader',
+        'sass-loader'
     ];
 };
 
@@ -136,11 +122,11 @@ module.exports = {
                 use: jsLoaders('@babel/preset-react')
             },
             {
-                test: /\.module.css$/,
+                test: /\.module.scss$/,
                 use: cssLoaders()
             },
             {
-                test: /\.(png|jpg|svg|gif)$/,
+                test: /\.(png|jpg|gif)$/,
                 use: ['file-loader']
             },
             {
@@ -150,10 +136,10 @@ module.exports = {
             {
                 test: /.svg$/,
                 use: {
-                    loader: "@svgr/webpack",
-                    options: { svgoConfig },
-                },
-            },
+                    loader: '@svgr/webpack',
+                    options: { svgoConfig }
+                }
+            }
         ]
     },
     optimization: optimization(),
@@ -163,9 +149,9 @@ module.exports = {
         hot: isDevelopment,
         compress: true,
         client: {
-            overlay: true,
+            overlay: true
         },
-        historyApiFallback: true,
+        historyApiFallback: true
     },
     devtool: isDevelopment ? 'source-map' : '',
     plugins: plugins()

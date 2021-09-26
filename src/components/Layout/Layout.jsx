@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Layout.module.css"
+import styles from "./Layout.module.scss"
 
 const Layout = ({leftColoumn, rightColoumn}) => {
     return(

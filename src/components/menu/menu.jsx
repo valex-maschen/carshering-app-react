@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../menu/menu.module.css";
+import styles from "../menu/menu.module.scss";
 import cn from "classnames";
 
 
